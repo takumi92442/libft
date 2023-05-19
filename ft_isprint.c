@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 14:11:08 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/18 14:11:08 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/18 13:46:48 by marvin            #+#    #+#             */
+/*   Updated: 2023/05/19 15:33:52 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-size_t ft_strlen(const char *s);
+#include "libft.h"
 
-size_t ft_strlen(const char *s)
+int ft_isprint(int c)
 {
-    size_t  i;
-    i = 0;
-    while(s[i])
+    if(c>=32&&c<=126)
     {
-        i++;
+        return (1);
     }
-    return(i);
+    else
+    {
+        return (0);
+    }
 }
 
 // #include<stdio.h>
-
 // int main()
 // {
-//     char* c;
-//     c = "12345678";
-//     printf("%d",ft_strlen(c));
+//     for(int i =0;i<150;i++){
+//         printf("%d %d\n",i,ft_isprint(i));
+//     }
+//     return 0;
 // }
-

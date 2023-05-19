@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 15:43:50 by taksato           #+#    #+#             */
-/*   Updated: 2023/05/16 16:12:47 by taksato          ###   ########.fr       */
+/*   Created: 2023/05/19 18:01:42 by taksato           #+#    #+#             */
+/*   Updated: 2023/05/19 18:41:31 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	ft_isalpha(int c);
-
-int	ft_isalpha(int c)
+#include"libft.h"
+char* ft_strchr(const char *s,int c)
 {
-	if (c <= 122 & c >= 65)
+	while (*s != '\0')
 	{
-		return (1);
+		
+		if(*s==(char)c)
+			return (char*)s;
+		s++;
 	}
-	else
-	{
-		return (0);
-	}
+	if(*s==c)
+		return (char*)s;
+	return (NULL);
 }
-
-// #include<stdio.h>
-// #include <limits.h>
-// int main(void)
-// {
-//     for (int i = 0; i < UCHAR_MAX; ++i) {
-//         if (ft_isalpha(i)) {
-//             printf("%c (%x)\n", i, i);
-//         }
-//     }
-// }

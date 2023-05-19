@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 13:16:21 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/18 13:16:21 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/19 18:59:24 by taksato           #+#    #+#             */
+/*   Updated: 2023/05/19 20:12:55 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalnum(int c);
+#include <stddef.h>
 
-int ft_isalnum(int c)
+int    ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-    if(c>=48&&c<=9||c>=65&&c<=90||c>=97&&c<=122)
+    while (n > 0 && *s1 != '\0' && (*s1 == *s2))
     {
-        return (1);
+        s1++;
+        s2++;
+        n--;
     }
-    else
-    {
+    if (n == 0)
         return (0);
-    }
+    return ((unsigned char)*s1 - (unsigned char)*s2);
 }
-// #include<stdio.h>
-
-// int main(){
-//     printf("%d  %d",ft_isalnum(123),ft_isalnum(65));
-//     return (0);
-// }
