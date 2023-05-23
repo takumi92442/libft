@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 18:01:42 by taksato           #+#    #+#             */
-/*   Updated: 2023/05/23 16:15:37 by taksato          ###   ########.fr       */
+/*   Created: 2023/05/23 15:33:15 by taksato           #+#    #+#             */
+/*   Updated: 2023/05/23 17:12:50 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
-char* ft_strchr(const char *s,int c)
+void* ft_memcpy(void* buf1, const void *buf2, size_t n)
 {
-	int i;
-	i =0 ;
-	while (*s != '\0')
+	unsigned char* ptr1;
+	unsigned char* ptr2;
+	ptr1 = (unsigned char*)buf1;
+	ptr2 = (unsigned char*)buf2;
+	while(n>0)
 	{
-		
-		if(*s==(char)c)
-			return (char*)s;
-		s++;
+		*ptr1 = *ptr2;
+		ptr1++;
+		ptr2++;
+		n--;
 	}
-	if(*s==c)
-		return (char*)s;
-	return (NULL);
+	return (void*)ptr1;
 }

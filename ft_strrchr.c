@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 18:01:42 by taksato           #+#    #+#             */
-/*   Updated: 2023/05/23 16:15:37 by taksato          ###   ########.fr       */
+/*   Created: 2023/05/23 15:54:25 by taksato           #+#    #+#             */
+/*   Updated: 2023/05/23 16:35:20 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
-char* ft_strchr(const char *s,int c)
+char* ft_strrchr(const char *s,int c)
 {
-	int i;
-	i =0 ;
-	while (*s != '\0')
+	int	i;
+	int mark;
+	char *ptr;
+	
+	i = 0;
+	mark = -1;
+	ptr = (char *)s;
+	while(s[i]!='\0')
 	{
-		
-		if(*s==(char)c)
-			return (char*)s;
-		s++;
+		printf("%d",i);
+		if (s[i] == (unsigned char)c)
+			mark = i;
+		i++;
 	}
-	if(*s==c)
-		return (char*)s;
-	return (NULL);
+	if ((unsigned char)c == '\0')
+		return &ptr[i];
+	if (mark == -1)
+		return NULL;
+	return &ptr[mark];
 }
+
