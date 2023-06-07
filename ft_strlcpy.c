@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 14:11:08 by marvin            #+#    #+#             */
-/*   Updated: 2023/06/07 16:58:19 by taksato          ###   ########.fr       */
+/*   Created: 2023/06/07 13:22:02 by taksato           #+#    #+#             */
+/*   Updated: 2023/06/07 15:55:46 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-size_t ft_strlen(const char *s)
+#include"libft.h"
+
+size_t ft_strlcpy(char *  dst, const char *  src, size_t dstsize)
 {
-    if(s == NULL)
-        return 0;
-    size_t  i;
-    i = 0;
-    while(s[i])
-    {
-        i++;
-    }
-    return(i);
+	unsigned long i;
+	size_t  t;
+	i = 0;
+	t = ft_strlen(src);
+	if(dstsize <= 0)
+		return t;
+	while(i < dstsize-1 && src[i] != '\0')
+	{
+		dst[i] = *src;
+		i++;
+		src++;
+	}
+	dst[i] = '\0';
+	return t;
 }
-
-// #include<stdio.h>
-
-// int main()
-// {
-//     char* c;
-//     c = "12345678";
-//     printf("%zu",ft_strlen(NULL));
-// }
-

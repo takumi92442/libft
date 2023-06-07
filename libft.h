@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stddef.h>
+#include <limits.h>
 
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
@@ -23,5 +24,7 @@ void ft_bzero(void *s, size_t n);
 void* ft_memcpy(void* buf1, const void *buf2, size_t n);
 char* ft_strrchr(const char *s, int c);
 void* ft_memmove(void *dst, const void *src, size_t len);
-
+size_t ft_strlcpy(char *  dst, const char *  src, size_t dstsize);
+size_t ft_strlcat(char *dst, const char *src, size_t size);
+int ft_atoi(const char *str);
 #endif
