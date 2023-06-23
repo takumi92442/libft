@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 18:01:42 by taksato           #+#    #+#             */
-/*   Updated: 2023/06/14 16:58:39 by takumi           ###   ########.fr       */
+/*   Created: 2023/06/14 10:42:44 by takumi            #+#    #+#             */
+/*   Updated: 2023/06/14 16:29:02 by takumi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-char* ft_strchr(const char *s,int c)
+#include "libft.h"
+
+int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	while (*s != '\0')
-	{
-		
-		if(*s==(char)c)
-			return (char*)s;
-		s++;
-	}
-	if(*s==c)
-		return (char*)s;
-	return (NULL);
+    const unsigned char *c1 = (const unsigned char*)s1;
+    const unsigned char *c2 = (const unsigned char*)s2;
+    
+    while(n--)
+    {
+        if(*c1!=*c2)
+            return (*c1 - *c2);
+        c1++;
+        c2++;
+    }
+    return (0);
 }
