@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 15:43:50 by taksato           #+#    #+#             */
-/*   Updated: 2023/06/30 20:49:41 by takumi           ###   ########.fr       */
+/*   Created: 2023/06/30 17:10:03 by takumi            #+#    #+#             */
+/*   Updated: 2023/06/30 17:16:02 by takumi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if ((c <= 'Z' && c >= 'A')||(c>='a'&&c<='z'))
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+    size_t len;
+    char *mapi;
+    size_t i;
+    
+    if(s == NULL)
+        return NULL;
+    len = ft_strlen(s);
+    mapi = ft_calloc(len + 1 , sizeof(char));
+    if(!mapi)
+        return NULL;
+    mapi[len] = '\0';
+    i = 0;
+    while(i < len)
+    {
+        mapi[i] = (*f)((unsigned int)i,s[i]);
+        i++;
+    }
+    return mapi;
 }

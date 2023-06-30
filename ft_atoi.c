@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
+/*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:13:20 by taksato           #+#    #+#             */
-/*   Updated: 2023/06/07 18:46:01 by taksato          ###   ########.fr       */
+/*   Updated: 2023/06/30 19:41:09 by takumi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long JudgeMax(long int sum,int number)
+static long JudgeMax(long int sum,int number)
 {
 	long max = LONG_MAX/10;
 	long difference;
@@ -28,7 +28,7 @@ long JudgeMax(long int sum,int number)
 	}
 }
 
-long JudgeMin(long int sum,int number)
+static long JudgeMin(long int sum,int number)
 {
 	long min = LONG_MIN/10;
 	long difference;
@@ -52,7 +52,7 @@ int ft_atoi(const char *str)
 	judge = 0;
 	long int sum;
 	sum = 0;
-	while(str[i] == ' ')
+	while(str[i] == ' '|| (str[i] >= '\t' && str[i] <= '\r'))
 	{
 		i++;
 	}

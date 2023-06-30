@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
+/*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:54:25 by taksato           #+#    #+#             */
-/*   Updated: 2023/05/23 16:35:20 by taksato          ###   ########.fr       */
+/*   Updated: 2023/06/30 19:28:45 by takumi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char* ft_strrchr(const char *s,int c)
 	ptr = (char *)s;
 	while(s[i]!='\0')
 	{
-		printf("%d",i);
 		if (s[i] == (unsigned char)c)
 			mark = i;
 		i++;

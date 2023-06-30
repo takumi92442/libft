@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 18:01:42 by taksato           #+#    #+#             */
-/*   Updated: 2023/06/26 21:40:21 by takumi           ###   ########.fr       */
+/*   Created: 2023/06/30 18:40:38 by takumi            #+#    #+#             */
+/*   Updated: 2023/06/30 19:16:00 by takumi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char* ft_strchr(const char *s,int c)
+void ft_putnbr_fd(int n, int fd)
 {
-	while (*s != '\0')
+    long num;
+
+    num = n;
+    if (num == 0)
+    {
+        ft_putchar_fd('0', fd);
+        return;
+    }
+
+    if (num< 0)
+    {
+        ft_putchar_fd('-', fd);
+        num *= -1;
+    }
+    if (num >= 10)
 	{
-		
-		if(*s==(char)c)
-			return (char*)s;
-		s++;
+		ft_putnbr_fd(num / 10, fd);
+		ft_putnbr_fd(num % 10, fd);
 	}
-	if(*s==(char)c)
-		return (char*)s;
-	return (NULL);
+	else
+		ft_putchar_fd(num + '0', fd);
 }
