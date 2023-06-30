@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
+/*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 14:11:08 by marvin            #+#    #+#             */
-/*   Updated: 2023/06/07 16:58:19 by taksato          ###   ########.fr       */
+/*   Updated: 2023/07/01 01:09:34 by takumi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 size_t ft_strlen(const char *s)
 {
-    if(s == NULL)
-        return 0;
     size_t  i;
     i = 0;
     while(s[i])

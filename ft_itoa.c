@@ -6,7 +6,7 @@
 /*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:25:11 by takumi            #+#    #+#             */
-/*   Updated: 2023/06/30 15:05:13 by takumi           ###   ########.fr       */
+/*   Updated: 2023/07/01 02:01:35 by takumi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char *ft_itoa(int n)
 
     count = number_count(n);
     buff_n = n;
-    itoa = ft_calloc(count + 1,sizeof(char*));
+    itoa = ft_calloc(count + 1,sizeof(char));
     if(!itoa)
         return NULL;
     if (n < 0)

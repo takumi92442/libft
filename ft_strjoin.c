@@ -6,7 +6,7 @@
 /*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:47:21 by takumi            #+#    #+#             */
-/*   Updated: 2023/06/26 18:02:11 by takumi           ###   ########.fr       */
+/*   Updated: 2023/07/01 01:53:34 by takumi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char *ft_strjoin(char const *s1, char const *s2)
     char *ptr;
     int i;
     
+    if(s1 == NULL || s2 == NULL)
+        return NULL;
     t = ft_strlen(s1) + ft_strlen(s2);
     i = 0;
     ptr = (char*)malloc(sizeof(char)*t);

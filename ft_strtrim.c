@@ -6,7 +6,7 @@
 /*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:23:10 by takumi            #+#    #+#             */
-/*   Updated: 2023/06/26 21:35:08 by takumi           ###   ########.fr       */
+/*   Updated: 2023/07/01 01:59:21 by takumi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char *ft_strtrim(char const *s1, char const *set)
     
     t = ft_strlen(s1);
     i = 0;
-    ptr = NULL;
     while (s1[i] != '\0' && ft_strchr(set,s1[i]))
     {
         i++;
@@ -33,9 +32,10 @@ char *ft_strtrim(char const *s1, char const *set)
         t--;
     }
     //後半消し
-    ptr = ft_calloc(t-i + 1,sizeof(char*));
-    if(ptr)
-        ft_strlcpy(ptr,&s1[i],t - i + 1);
+    ptr = ft_calloc(t-i + 1,sizeof(char));
+    if(!ptr)
+        return NULL;
+    ft_strlcpy(ptr,&s1[i],t - i + 1);
     return ptr;
 }
 

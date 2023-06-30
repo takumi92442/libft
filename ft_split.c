@@ -6,7 +6,7 @@
 /*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 00:03:59 by takumi            #+#    #+#             */
-/*   Updated: 2023/06/30 14:22:04 by takumi           ###   ########.fr       */
+/*   Updated: 2023/07/01 02:55:19 by takumi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,12 @@ static size_t word_count(char const *s, char c)
         return 0;
     while(*s!='\0')
     {
-        while (*s == c && *s != '\0')
-        {
-            s++;
-        }
-        if(*s != c &&  *s != '\0')
+        if(*s != c)
             count++;
         while (*s != c &&  *s != '\0')
-        {
             s++;
-        } 
+        while (*s == c && *s != '\0')
+            s++;
     }
     return count;
 }
@@ -48,14 +44,14 @@ static void	memory_free(char **pp, size_t len)
 	free(pp);
 }
 
-static char *arrangement_make(char **pp, size_t word_size, size_t arrangement_i)
+static char *arrangement_make(char **pp, size_t pp_i, size_t word_len)
 {
     char *p;
     
-    p = ft_calloc(word_size+1,sizeof(char));
+    p = ft_calloc(word_len,sizeof(char));
     if(!p)
     {
-        memory_free(pp, arrangement_i);
+        memory_free(pp, pp_i);
         return NULL;
     }
     return p;
@@ -72,6 +68,7 @@ static char** arrangement_in(char *str, char **pp, char c)
     {
         if(*str != c)
         {
+            p = NULL;
 			p_len = 0;
 			while (str[p_len] != c && str[p_len] != '\0')
 				p_len++;
