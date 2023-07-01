@@ -3,41 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:25:11 by takumi            #+#    #+#             */
-/*   Updated: 2023/07/01 02:01:35 by takumi           ###   ########.fr       */
+/*   Updated: 2023/07/01 12:46:46 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t number_count(long n)
+static size_t	number_count(long n)
 {
-    if(n<0)
-        return 1+ number_count(-n);
-    if(n/10 == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 1 + number_count(n/10);
-    }
-        
+	if (n < 0)
+		return (1 + number_count(-n));
+	if (n / 10 == 0)
+	{
+		return (1);
+	}
+	else
+	{
+		return (1 + number_count(n / 10));
+	}
 }
-char *ft_itoa(int n)
-{
-    size_t count;
-    char *itoa;
-    long buff_n;
 
-    count = number_count(n);
-    buff_n = n;
-    itoa = ft_calloc(count + 1,sizeof(char));
-    if(!itoa)
-        return NULL;
-    if (n < 0)
+char	*ft_itoa(int n)
+{
+	size_t		count;
+	char		*itoa;
+	long long	buff_n;
+
+	count = number_count(n);
+	buff_n = n;
+	itoa = ft_calloc(count + 1, sizeof(char));
+	if (!itoa)
+		return (NULL);
+	if (n < 0)
 		buff_n *= -1;
 	itoa[count] = '\0';
 	while (count > 0)
@@ -46,11 +46,10 @@ char *ft_itoa(int n)
 		buff_n /= 10;
 		count--;
 	}
-    if (n < 0)
+	if (n < 0)
 		itoa[count] = '-';
-    return (itoa);
+	return (itoa);
 }
-
 
 // #include <stdio.h>
 

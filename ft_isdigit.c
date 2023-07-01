@@ -6,7 +6,7 @@
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:14:10 by taksato           #+#    #+#             */
-/*   Updated: 2023/05/19 15:46:36 by taksato          ###   ########.fr       */
+/*   Updated: 2023/07/01 13:35:15 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 int	ft_isdigit(int c)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	else
-		return (0);
+	return (c >= 48 && c <= 57);
 }
 
 // #include<stdio.h>

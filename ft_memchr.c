@@ -10,39 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "libft.h"
+#include "libft.h"
 
- void * ft_memchr(const void *s, int c, size_t n)
- {
-    c = (unsigned char)c;
-    const unsigned char *p;
-    p = s;
-    while(n--)
-    {
-        if(*p == c)
-            return (void*)p;
-        p++;
-    }
-    return NULL;
- }
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	const unsigned char	*p;
+
+	c = (unsigned char)c;
+	p = s;
+	while (n--)
+	{
+		if (*p == c)
+			return ((void *)p);
+		p++;
+	}
+	return (NULL);
+}
 // #include <stdio.h>
 
 // #include <stdlib.h>
 
 // #include <string.h>
 
- 
-
 // int main(void)
 
 // {
 //     char buf[] = "ABCD5EFGH";
-     
+
 //     char *ch;
 
 //     ch = (char*)ft_memchr(buf,'E',sizeof(buf));
-
- 
 
 //     if(ch!=NULL){
 
@@ -54,12 +51,6 @@
 
 //     }
 
- 
-
-     
-
-     
-
-//     return 0;
+//     return (0);
 
 // }

@@ -6,21 +6,16 @@
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:16:21 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/19 16:47:37 by taksato          ###   ########.fr       */
+/*   Updated: 2023/07/01 13:36:54 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int ft_isalnum(int c)
-{
-    if((c <= 'Z' && c >= 'A')||(c>='a'&&c<='z')||(c >= 48 && c <= 57))
-    {
-        return (1);
-    }
-    else
-    {
-        return (0);
-    }
+
+int	ft_isalnum(int c)
+{	
+	return ((c <= 'Z' && c >= 'A') || (c >= 'a' && c <= 'z') || \
+	(c >= 48 && c <= 57));
 }
 // #include<stdio.h>
 

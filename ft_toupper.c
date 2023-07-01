@@ -6,20 +6,20 @@
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:37:38 by taksato           #+#    #+#             */
-/*   Updated: 2023/05/19 17:43:49 by taksato          ###   ########.fr       */
+/*   Updated: 2023/07/01 11:35:57 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	if(c>='a'&&c<='z')
+	if (c >= 'a' && c <= 'z')
 	{
-		return (c-32);
+		return (c - 32);
 	}
 	else
 	{
-		return(c);
+		return (c);
 	}
 }

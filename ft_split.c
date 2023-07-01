@@ -3,32 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 00:03:59 by takumi            #+#    #+#             */
-/*   Updated: 2023/07/01 02:55:19 by takumi           ###   ########.fr       */
+/*   Updated: 2023/07/01 11:31:40 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t word_count(char const *s, char c)
+static size_t	word_count(char const *s, char c)
 {
-    size_t count;
-    
-    count = 0;
-    if(s == NULL)
-        return 0;
-    while(*s!='\0')
-    {
-        if(*s != c)
-            count++;
-        while (*s != c &&  *s != '\0')
-            s++;
-        while (*s == c && *s != '\0')
-            s++;
-    }
-    return count;
+	size_t	count;
+
+	count = 0;
+	if (s == NULL)
+		return (0);
+	while (*s != '\0')
+	{
+		if (*s != c)
+			count++;
+		while (*s != c && *s != '\0')
+			s++;
+		while (*s == c && *s != '\0')
+			s++;
+	}
+	return (count);
 }
 
 static void	memory_free(char **pp, size_t len)
@@ -39,36 +39,35 @@ static void	memory_free(char **pp, size_t len)
 	while (i < len)
 	{
 		free(pp[i]);
-        i++;
+		i++;
 	}
 	free(pp);
 }
 
-static char *arrangement_make(char **pp, size_t pp_i, size_t word_len)
+static char	*arrangement_make(char **pp, size_t pp_i, size_t word_len)
 {
-    char *p;
-    
-    p = ft_calloc(word_len,sizeof(char));
-    if(!p)
-    {
-        memory_free(pp, pp_i);
-        return NULL;
-    }
-    return p;
+	char	*p;
+
+	p = ft_calloc(word_len, sizeof(char));
+	if (!p)
+	{
+		memory_free(pp, pp_i);
+		return (NULL);
+	}
+	return (p);
 }
 
-static char** arrangement_in(char *str, char **pp, char c)
+static char	**arrangement_in(char *str, char **pp, char c)
 {
-    size_t pp_i;
-    char *p;
-    size_t p_len;
-    
-    pp_i = 0;
-    while(*str != '\0')
-    {
-        if(*str != c)
-        {
-            p = NULL;
+	size_t	pp_i;
+	char	*p;
+	size_t	p_len;
+
+	pp_i = 0;
+	while (*str != '\0')
+	{
+		if (*str != c)
+		{
 			p_len = 0;
 			while (str[p_len] != c && str[p_len] != '\0')
 				p_len++;
@@ -77,15 +76,13 @@ static char** arrangement_in(char *str, char **pp, char c)
 				return (NULL);
 			ft_strlcpy(p, str, p_len + 1);
 			pp[pp_i] = p;
-            pp_i++;
-            str += p_len;
+			pp_i++;
+			str += p_len;
 		}
-        else
-        {
-            str++;    
-        }
-    }
-    return pp;
+		else
+			str++;
+	}
+	return (pp);
 }
 
 char	**ft_split(char const *s, char c)
@@ -105,7 +102,6 @@ char	**ft_split(char const *s, char c)
 	pp = arrangement_in(str, pp, c);
 	return (pp);
 }
-
 
 // #include <stdio.h>
 
@@ -212,7 +208,7 @@ char	**ft_split(char const *s, char c)
 // 		}
 // 		free(lst);
 // 	}
-	
+
 // 	printf("\n*s = %s\n", "--1-2--3---4----5------42");
 // 	printf("dl = %c\n", '-');
 // 	lst = ft_split("--1-2--3---4----5------42", '-');

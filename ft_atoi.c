@@ -3,80 +3,83 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:13:20 by taksato           #+#    #+#             */
-/*   Updated: 2023/06/30 19:41:09 by takumi           ###   ########.fr       */
+/*   Updated: 2023/07/01 13:02:32 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long JudgeMax(long int sum,int number)
+static long	judge_max(long int sum, int number)
 {
-	long max = LONG_MAX/10;
-	long difference;
+	long long	max;
+	long long	difference;
+
+	max = LONG_MAX / 10;
 	difference = 0;
-	if(max < sum)
-		return LONG_MAX;
-	difference = LONG_MAX - sum*10;
-	if(difference - number > 0)
-		return sum*10 + number;
+	if (max < sum)
+		return (LONG_MAX);
+	difference = LONG_MAX - sum * 10;
+	if (difference - number > 0)
+		return (sum * 10 + number);
+	else
+		return (LONG_MAX);
+}
+
+static long	judge_min(long int sum, int number)
+{
+	long long	min;
+	long long	difference;
+
+	min = LONG_MIN / 10;
+	difference = 0;
+	if (min > sum)
+		return (LONG_MIN);
+	difference = LONG_MIN - sum * 10;
+	if (difference - number > 0)
+		return (LONG_MIN);
 	else
 	{
-		return LONG_MAX;
+		return (sum * 10 + number);
 	}
 }
 
-static long JudgeMin(long int sum,int number)
+static int	judge_minus(const char *str, int i)
 {
-	long min = LONG_MIN/10;
-	long difference;
-	difference = 0;
-	if(min > sum)
-		return LONG_MIN;
-	difference = LONG_MIN - sum*10;
-	if(difference - number > 0)
-		return LONG_MIN;
-	else
+	if (str[i] == '-' || str[i] == '+')
 	{
-		return sum*10 + number;
+		if (str[i] == '-')
+			return (1);
 	}
+	return (0);
 }
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int i;
+	int			i;
+	int			judge;
+	long long	sum;
+
 	i = 0;
-	int judge;
 	judge = 0;
-	long int sum;
 	sum = 0;
-	while(str[i] == ' '|| (str[i] >= '\t' && str[i] <= '\r'))
-	{
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
 		i++;
-	}
-	if(str[i] == '-' || str[i] == '+')
-	{
-		if(str[i] == '-')
-			judge = 1;
+	judge = judge_minus(str, i);
+	if (str[i] == '-' || str[i] == '+')
 		i++;
-	}
-	while (str[i] >='0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if(judge == 1)
-		{
-			sum = JudgeMin(sum,-(str[i]-'0'));
-		}
+		if (judge == 1)
+			sum = judge_min(sum, -(str[i] - '0'));
 		else
-		{
-			sum = JudgeMax(sum,str[i]-'0');
-		}
+			sum = judge_max(sum, str[i] - '0');
 		i++;
 	}
-	return sum;
+	return (sum);
 }
-
 //  #include <stdlib.h>
 // int    main(void)
 // {

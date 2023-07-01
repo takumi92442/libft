@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: takumi <takumi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 18:35:12 by takumi            #+#    #+#             */
-/*   Updated: 2023/06/30 18:38:58 by takumi           ###   ########.fr       */
+/*   Updated: 2023/07/01 11:24:15 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-    if (s == NULL)
+	if (s == NULL)
 		return ;
-    ft_putstr_fd(s,fd);
-    write(fd, "\n", 1);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

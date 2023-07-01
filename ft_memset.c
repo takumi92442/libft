@@ -6,23 +6,25 @@
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:32:57 by taksato           #+#    #+#             */
-/*   Updated: 2023/05/23 15:48:30 by taksato          ###   ########.fr       */
+/*   Updated: 2023/07/01 11:27:31 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
-void* ft_memset(void *b, int c, size_t len)
+#include "libft.h"
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char* ptr;
-	ptr = (unsigned char*)b;
-	unsigned char C;
-	C = (unsigned char)c;
-	int i;
+	unsigned char	*ptr;
+	unsigned char	char_c;
+	int				i;
+
+	ptr = (unsigned char *)b;
+	char_c = (unsigned char)c;
 	i = 0;
-	while(i<(int)len)
+	while (i < (int)len)
 	{
-		ptr[i] = C;
+		ptr[i] = char_c;
 		i++;
 	}
-	return (void*)ptr;
+	return ((void *)ptr);
 }

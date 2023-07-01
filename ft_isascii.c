@@ -6,21 +6,15 @@
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:33:26 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/19 15:33:28 by taksato          ###   ########.fr       */
+/*   Updated: 2023/07/01 13:41:24 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int ft_isascii(int c)
+
+int	ft_isascii(int c)
 {
-    if(c>=0&&c<=127)
-    {
-        return (1);
-    }
-    else
-    {
-        return (0);
-    }
+	return (c >= 0 && c <= 127);
 }
 
 // #include<stdio.h>

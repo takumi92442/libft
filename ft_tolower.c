@@ -6,16 +6,16 @@
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:44:55 by taksato           #+#    #+#             */
-/*   Updated: 2023/05/19 17:53:56 by taksato          ###   ########.fr       */
+/*   Updated: 2023/07/01 11:35:53 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int ft_tolower(int c)
+
+int	ft_tolower(int c)
 {
-	
-	if(c>='A'&&c<='Z')
-		return(c+32);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
 	else
-		return(c);
+		return (c);
 }

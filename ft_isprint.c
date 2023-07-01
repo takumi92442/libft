@@ -6,22 +6,15 @@
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:46:48 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/19 15:33:52 by taksato          ###   ########.fr       */
+/*   Updated: 2023/07/01 13:33:21 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    if(c>=32&&c<=126)
-    {
-        return (1);
-    }
-    else
-    {
-        return (0);
-    }
+	return (c >= 32 && c <= 126);
 }
 
 // #include<stdio.h>
@@ -30,5 +23,5 @@ int ft_isprint(int c)
 //     for(int i =0;i<150;i++){
 //         printf("%d %d\n",i,ft_isprint(i));
 //     }
-//     return 0;
+//     return (0);
 // }
