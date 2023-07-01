@@ -6,7 +6,7 @@
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 17:10:03 by takumi            #+#    #+#             */
-/*   Updated: 2023/07/01 11:34:35 by taksato          ###   ########.fr       */
+/*   Updated: 2023/07/01 20:51:03 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*mapi;
 	size_t	i;
 
-	if (s == NULL)
+	if (s == NULL || f == NULL)
 		return (NULL);
 	len = ft_strlen(s);
 	mapi = ft_calloc(len + 1, sizeof(char));
