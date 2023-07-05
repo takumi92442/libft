@@ -6,7 +6,7 @@
 /*   By: taksato <taksato@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 00:03:59 by takumi            #+#    #+#             */
-/*   Updated: 2023/07/01 11:31:40 by taksato          ###   ########.fr       */
+/*   Updated: 2023/07/05 10:35:51 by taksato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,26 +44,26 @@ static void	memory_free(char **pp, size_t len)
 	free(pp);
 }
 
-static char	*arrangement_make(char **pp, size_t pp_i, size_t word_len)
+static char	*arrangement_make(char **pp, size_t index, size_t p_len)
 {
 	char	*p;
 
-	p = ft_calloc(word_len, sizeof(char));
+	p = ft_calloc(p_len + 1, sizeof(char));
 	if (!p)
 	{
-		memory_free(pp, pp_i);
+		memory_free(pp, index);
 		return (NULL);
 	}
 	return (p);
 }
 
-static char	**arrangement_in(char *str, char **pp, char c)
+static char	**arrangement_in(char *str, char c, char **pp)
 {
-	size_t	pp_i;
+	size_t	i;
 	char	*p;
 	size_t	p_len;
 
-	pp_i = 0;
+	i = 0;
 	while (*str != '\0')
 	{
 		if (*str != c)
@@ -71,15 +71,16 @@ static char	**arrangement_in(char *str, char **pp, char c)
 			p_len = 0;
 			while (str[p_len] != c && str[p_len] != '\0')
 				p_len++;
-			p = arrangement_make(pp, pp_i, p_len);
+			p = arrangement_make(pp, i, p_len);
 			if (p == NULL)
 				return (NULL);
 			ft_strlcpy(p, str, p_len + 1);
-			pp[pp_i] = p;
-			pp_i++;
-			str += p_len;
+			pp[i] = p;
+			i++;
 		}
-		else
+		while (*str != c && *str != '\0')
+			str++;
+		while (*str == c && *str != '\0')
 			str++;
 	}
 	return (pp);
@@ -99,7 +100,7 @@ char	**ft_split(char const *s, char c)
 	pp[pp_len] = (char *) NULL;
 	if (str == NULL)
 		return (pp);
-	pp = arrangement_in(str, pp, c);
+	pp = arrangement_in(str, c, pp);
 	return (pp);
 }
 
